@@ -41,9 +41,12 @@ for i =1, #patientList do --#patientList do
   patientName = {}
   patientName = GetFileName(patientList[i])
    
-  if not fileexists(folderADMIRE..[[processedAlexAndTom\]]..patientName[i]) then
+  if not fileexists(folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwp]]) then
     print (i.." Processing patient "..patientName[i])
  
+    -- load patient .pack
+    loadpack(folder..patientList[i]) 
+        
     -- load dummy DICOM to create header file
     wm.scan[3]:load([[DCM:D:\data\ADMIRE2WMatch\dummyDicom\1.3.6.1.4.1.32722.107512530760489863685055474273076483714.dcm]])
     
@@ -80,13 +83,13 @@ for i =1, #patientList do --#patientList do
     AVS:DIL_ADD(wm.Delineation.Dots, wm.Delineation.Index, wm.Delineation.Lut, a.Dots, a.Index, a.Lut, wm.Delineation.Dots, wm.Delineation.Index, wm.Delineation.Lut) -- combine all
    
     -- Save contours  
-    -- AVS:WRITE_XDR(wm.Delineation.Dots, folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwp]])
-    -- AVS:WRITE_XDR(wm.Delineation.Index, folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwi]])
-    -- AVS:WRITE_XDR(wm.Delineation.Lut, folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwl]])
+    AVS:WRITE_XDR(wm.Delineation.Dots, folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwp]])
+    AVS:WRITE_XDR(wm.Delineation.Index, folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwi]])
+    AVS:WRITE_XDR(wm.Delineation.Lut, folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwl]])
     
     --Save as pack (larger)
-    wm.scan[3]:clear()
-    savepack(folderADMIRE..[[processedAlexAndTom\]]..patientList[i])
+    --wm.scan[3]:clear()
+    --savepack(folderADMIRE..[[processedAlexAndTom\]]..patientList[i])
 
     -- clear data from run
     t = {}
