@@ -42,8 +42,11 @@ for i =1, #patientList do --#patientList do
   patientName = GetFileName(patientList[i])
    
   if not fileexists(folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwp]]) then
-    print (i.." Processing patient "..patientName)
+    print (i.." Processing patient "..patientName[i])
  
+    -- load patient .pack
+    loadpack(folder..patientList[i]) 
+        
     -- load dummy DICOM to create header file
     wm.scan[3]:load([[DCM:D:\data\ADMIRE2WMatch\dummyDicom\1.3.6.1.4.1.32722.107512530760489863685055474273076483714.dcm]])
     
