@@ -28,7 +28,7 @@ function GetFileName(url)
 end
 
 require ('csv')
-folder = [[D:\data\alex_tom\prostate_packs\]]
+folder = [[D:\data\alex_tom\Packs_719_full\]]
 folderADMIRE = [[D:\data\ADMIRE2WMatch\inter\]]
 
 takeQCimage = false
@@ -43,7 +43,9 @@ for i =1, #patientList do --#patientList do
    
   if not fileexists(folderADMIRE..[[processedAlexAndTom\]]..patientName..[[.dwp]]) then
     print (i.." Processing patient "..patientName)
- 
+-- load patient .pack
+    loadpack(folder..patientList[i]) 
+        
     -- load dummy DICOM to create header file
     wm.scan[3]:load([[DCM:D:\data\ADMIRE2WMatch\dummyDicom\1.3.6.1.4.1.32722.107512530760489863685055474273076483714.dcm]])
     
@@ -59,7 +61,7 @@ for i =1, #patientList do --#patientList do
     
     -- export DICOM and run ADMIRE.  Expects patient to be in a folder called tmpData and will return results to a folder called Results
     wm.scan[1]:export(folderADMIRE..[[tmpDataAlexAndTom\%d.dcm]], wm.scan[3].properties)  --move properties of scan 3 from tmpData folder to scan 1
-    os.execute(folderADMIRE..[[Batch_GentleProstate_2atlases.bat]]) -- run the batch
+    os.execute(folderADMIRE..[[Batch_GentleProstate_AllAtlases.bat]]) -- run the batch
     
     -- rename the structure file to remove square brackets and loads new structures
     t = {} -- initialise t
