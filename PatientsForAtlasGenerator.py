@@ -80,7 +80,7 @@ for i in range(0, len(subsetBodyList)):
 # instead of making these lists, concatonate them for ease
 bodyAtlas = pd.concat(atlasBodyPatients)
 prostateAtlas = pd.concat(atlasProstatePatients)
-rectumAtlas = pd.concat(atlasProstatePatients)
+rectumAtlas = pd.concat(atlasRectumPatients)
     
 # print a list of atlas patients
 print(bodyAtlas,'\n',prostateAtlas,'\n',rectumAtlas)
