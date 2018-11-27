@@ -27,7 +27,7 @@ rectumVolume = AdmirePatientAtlas["rectumVolume"]
 patientNumber = AdmirePatientAtlas["patientNumber"]
 
 #size of table
-totalPatient = len(patientNumber)
+totalPatient = 50
 
 #Sorted tables
 sortByBodyVolume = AdmirePatientAtlas.sort_values(by=['bodyVolume'])
@@ -42,29 +42,35 @@ subsetRectumList = []
 
 # Add subsets to subset list (just makes it easier to iterate over and cuts down a bit of code)
     # add bodyVolumes subset
-subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 17)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 23))])
-subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 32)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 38))])
-subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 43)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 47))])
-subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 48)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 52))])
-subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 53)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 57))])
-subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 62)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 68))])
-subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 77)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 83))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 12)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 18))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 27)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 33))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 38)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 42))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 44)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 46))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 49)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 51))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 54)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 56))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 58)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 62))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 67)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 73))])
+subsetBodyList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.bodyVolume >= np.percentile(bodyVolume, 82)) & (AdmirePatientAtlas.bodyVolume <= np.percentile(bodyVolume, 88))])
     # add prostateVolumes subset
-subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 17)) & (AdmirePatientAtlas.prostateVolume <= np.percentile(prostateVolume, 23))])
-subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 32)) & (AdmirePatientAtlas.prostateVolume <= np.percentile(prostateVolume, 38))])
-subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 43)) & (AdmirePatientAtlas.prostateVolume <= np.percentile(prostateVolume, 47))])
-subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 48)) & (AdmirePatientAtlas.prostateVolume <= np.percentile(prostateVolume, 52))])
-subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 53)) & (AdmirePatientAtlas.prostateVolume <= np.percentile(prostateVolume, 57))])
-subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 62)) & (AdmirePatientAtlas.prostateVolume <= np.percentile(prostateVolume, 68))])
-subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 77)) & (AdmirePatientAtlas.prostateVolume <= np.percentile(prostateVolume, 83))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 12)) & (AdmirePatientAtlas.prostateVolume <= np.percentile(prostateVolume, 18))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 27)) & (AdmirePatientAtlas.prostateVolume<= np.percentile(prostateVolume, 33))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 38)) & (AdmirePatientAtlas.prostateVolume<= np.percentile(prostateVolume, 42))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 44)) & (AdmirePatientAtlas.prostateVolume<= np.percentile(prostateVolume, 46))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 49)) & (AdmirePatientAtlas.prostateVolume<= np.percentile(prostateVolume, 51))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 54)) & (AdmirePatientAtlas.prostateVolume<= np.percentile(prostateVolume, 56))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 58)) & (AdmirePatientAtlas.prostateVolume<= np.percentile(prostateVolume, 62))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 67)) & (AdmirePatientAtlas.prostateVolume<= np.percentile(prostateVolume, 73))])
+subsetProstateList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.prostateVolume >= np.percentile(prostateVolume, 82)) & (AdmirePatientAtlas.prostateVolume<= np.percentile(prostateVolume, 88))])
     # add rectumVolumes subset
-subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume >= np.percentile(rectumVolume, 17)) & (AdmirePatientAtlas.rectumVolume <= np.percentile(rectumVolume, 23))])
-subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume >= np.percentile(rectumVolume, 32)) & (AdmirePatientAtlas.rectumVolume <= np.percentile(rectumVolume, 38))])
-subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume >= np.percentile(rectumVolume, 43)) & (AdmirePatientAtlas.rectumVolume <= np.percentile(rectumVolume, 47))])
-subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume >= np.percentile(rectumVolume, 48)) & (AdmirePatientAtlas.rectumVolume <= np.percentile(rectumVolume, 52))])
-subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume >= np.percentile(rectumVolume, 53)) & (AdmirePatientAtlas.rectumVolume <= np.percentile(rectumVolume, 57))])
-subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume >= np.percentile(rectumVolume, 62)) & (AdmirePatientAtlas.rectumVolume <= np.percentile(rectumVolume, 68))])
-subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume >= np.percentile(rectumVolume, 77)) & (AdmirePatientAtlas.rectumVolume <= np.percentile(rectumVolume, 83))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 12)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 18))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 27)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 33))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 38)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 42))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 44)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 46))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 49)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 51))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 54)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 56))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 58)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 62))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 67)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 73))])
+subsetRectumList.append(AdmirePatientAtlas[lambda AdmirePatientAtlas:(AdmirePatientAtlas.rectumVolume>= np.percentile(rectumVolume, 82)) & (AdmirePatientAtlas.rectumVolume<= np.percentile(rectumVolume, 88))])
 
 # create a list to hold the patient ID's of those chosen to be in the ATLAS
 atlasBodyPatients = [] 
